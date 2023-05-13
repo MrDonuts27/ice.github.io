@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>เก็บข้อมูล 2 หลัก</title>
+    <style>
+        /* CSS เพื่อจัดรูปแบบหน้าเว็บ */
+    </style>
+</head>
+<body>
+    <h1>เก็บข้อมูล 2 หลัก</h1>
+    <input type="number" id="numberInput">
+    <button onclick="addNumber()">เพิ่ม</button>
+    <button onclick="processNumbers()">ประมวลผล</button>
+    <button onclick="clearData()">ล้างข้อมูล</button>
+
+    <h2>เลขที่เพิ่มเข้ามา:</h2>
+    <ul id="numberList"></ul>
+
+    <script src="script.js"></script>
+    <script>
+        displayNumbers(); // เพิ่มการเรียกใช้ฟังก์ชัน displayNumbers() เพื่อแสดงตัวเลขที่ถูกเพิ่มลงในรายการ
+    
+        // เพิ่มตรวจสอบว่าตัวเลขที่ใส่เข้ามาตอนแรกเป็นตัวเลขที่มี 2 หลักหรือไม่
+        const initialNumberInput = document.getElementById("numberInput").value;
+        if (initialNumberInput !== "") {
+            const initialNumber = parseInt(initialNumberInput);
+            if (isNaN(initialNumber) || initialNumber < 10 || initialNumber > 99) {
+                document.getElementById("numberInput").value = "";
+                alert("กรุณาป้อนตัวเลขที่มี 2 หลัก");
+            }
+        }
+    </script>
+    
+</body>
+</html>
